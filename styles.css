@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Reenie Beanie", sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(125deg, #0d59f2, #144035);
+  padding: 10px;
+
+  .todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+
+    h2 {
+      color: #002765;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    img {
+      width: 40px;
+      margin-left: 10px;
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 10px;
+      font-weight: 0.85rem;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      padding: 16px 50px;
+      background: #ff5945;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 40px;
+      box-shadow: 2px 2px 3px 3px black;
+      font-family: "Reenie Beanie", sans-serif;
+      font-size: 2rem;
+    }
+
+    button:hover {
+      transform: scale(1.2);
+    }
+
+    button:active {
+      transform: scale(0.8);
+      background-color: rgb(210, 180, 30);
+      font-family: "Reenie Beanie", sans-serif;
+      font-size: 2rem;
+    }
+  }
+
+  ul {
+    li {
+      list-style: none;
+      font-size: 1.2rem;
+      padding: 12px 8px 12px 50px;
+      user-select: none;
+      cursor: pointer;
+      position: relative;
+      transition: all 10ms ease;
+
+      span {
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 3rem;
+        color: #a15d0f;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 30%;
+      }
+
+      span:hover {
+        background: #edeef0;
+        border-radius: 50%;
+        transform: scale(1);
+      }
+    }
+
+    li:hover {
+      transform: scale(1.5);
+      margin-left: 50px;
+      width: 200px;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      background-image: url(Assets/background.webp);
+      background-size: cover;
+      background-position: center;
+      top: 12px;
+      left: 8px;
+    }
+
+    .checked {
+      color: #555;
+      text-decoration: line-through;
+    }
+
+    .checked::before {
+      background-image: url(Assets/checked.webp);
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    background: linear-gradient(
+      100deg,
+      rgb(45, 91, 45),
+      rgb(175, 175, 67),
+      rgb(163, 40, 40)
+    );
+
+    .todo-app {
+      width: 70vw;
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .container {
+    .todo-app {
+      width: 85vw;
+      height: 90vh;
+      margin-top: 10px;
+    }
+
+    .row {
+      flex-flow: column nowrap;
+      gap: 2rem;
+
+      input {
+        margin-top: 30px;
+        height: 5rem;
+        font-size: 1rem;
+      }
+
+      button {
+        height: 2px;
+        width: 20px;
+        line-height: 30%;
+        padding-left: 1rem;
+        margin-left: -2rem;
+      }
+    }
+
+    ul {
+      li {
+        display: flex;
+        flex-flow: row wrap;
+      }
+    }
+  }
+}
